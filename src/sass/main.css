@@ -1,0 +1,131 @@
+@charset "UTF-8";
+/*
+ * Główny plik dla stylów.
+ * Wszystkie partials podłączamy tutaj.
+ */
+.list {
+  list-style: none;
+}
+
+.example {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #424242;
+  max-width: 960px;
+  padding: 16px;
+}
+
+.example code {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #009688;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.example .background {
+  height: 240px;
+  background-image: url("../images/demo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.responsive {
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+}
+
+.header {
+  width: 100%;
+  max-width: 100vw;
+  height: auto;
+  position: relative;
+}
+.header__logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline;
+}
+.header__logo--text {
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 35px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
+.header__list {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
+.header__button {
+  height: 41.9999923706px;
+  width: 147px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+  background-color: inherit;
+  transition: 0.3s;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  position: absolute;
+  top: 50px;
+}
+.header__button:hover {
+  background-color: #ff6b01;
+}
+.header__button--first {
+  position: absolute;
+  bottom: 35%;
+  left: 40%;
+}
+.header__button--second {
+  position: absolute;
+  bottom: 35%;
+  right: 40%;
+}
+@media screen and (max-width: 480px) {
+  .header .header__logo--text {
+    visibility: hidden;
+  }
+  .header .header__button--first {
+    bottom: 35%;
+    left: 20%;
+  }
+  .header .header__button--second {
+    bottom: 35%;
+    right: 20%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header .header__button--first {
+    display: block;
+    margin: 0.4em auto;
+  }
+  .header .header__button--second {
+    display: block;
+    margin: 0.4em auto;
+  }
+}
+
+.link {
+  text-decoration: none;
+}/*# sourceMappingURL=main.css.map */
