@@ -1,0 +1,53 @@
+// Póki nie ma schematu budowy pojedynczego kalfa filmu, wstawiłam na sztywno boxy z określoną wysokością, szerokością i kolorem, żeby było widać jak wygląda stylowanie. Jak będzie gotowy schemat budowy pojedynczego filmu, będzie można usunąć sztywne wymiary movie-item i kolor tła.
+
+.movie-container {
+  margin: 0 auto;
+  max-width: 320px;
+  padding: 20px;
+}
+
+.movies-list {
+  list-style: none;
+}
+
+.movie-item {
+  margin: 0 auto 20px;
+  width: 280px;
+  height: 445px;
+  background-color: aquamarine;
+}
+
+@media (width >= 768px) {
+  .movie-container {
+    margin: 0 auto;
+    max-width: 768px;
+    padding: 60px 30px;
+  }
+
+  .movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .movie-item {
+    margin: 0;
+    width: 336px;
+    height: 494px;
+  }
+}
+
+@media (width >= 1280px) {
+  .movie-container {
+    max-width: 1280px;
+    padding: 60px 30px;
+  }
+  .movies-list {
+    gap: 32px 16px;
+  }
+
+  .movie-item {
+    width: 395px;
+    height: 634px;
+  }
+}
