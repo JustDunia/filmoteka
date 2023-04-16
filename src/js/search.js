@@ -1,5 +1,11 @@
+import axios from 'axios';
+import { idToGenereTranslate } from './helpers';
+const listFilms = document.querySelector('.movies-list');
+const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
+
 let searchMore = '';
 const imagesForm = document.querySelector('#search-form');
+
 const fetchSearchMovies = async query => {
   const table = await axios.get(
     `
@@ -8,6 +14,32 @@ const fetchSearchMovies = async query => {
   console.log(table);
   return table;
 };
+
+function renderFilms(images) {
+  const card = images.data.results
+    .map(image => {
+      return `
+      <li class="gallery__movie-card">
+        <img class="boxID" alt="${image.title} movie poster" movieID=${image.id} movieTitle="${
+        image.title + ' ' + Number.parseInt(image.release_date)
+      }" src="https://image.tmdb.org/t/p/w500${image.poster_path}"
+        <div class="info">
+          <p class="info__title">
+            <b>${image.title}</b>
+          </p>
+          <p class="info__genre">
+            <b>Views</b></br> ${image.genre_ids
+              .map(element => idToGenereTranslate(element))
+              .join(`, `)}
+     | ${Number.parseInt(image.release_date)}
+          </p>
+          
+        </div>
+      </li>`;
+    })
+    .join('');
+  listFilms.insertAdjacentHTML('beforeend', card);
+}
 
 function searchFilms(event) {
   event.preventDefault();
@@ -18,15 +50,15 @@ function searchFilms(event) {
   searchMore = searchQuery.value;
   page = 1;
 
-  document.getElementById('load-more').style.display = 'none';
-  const onClick = () => {
-    setTimeout(() => {
-      document.getElementById('load-more').style.display = 'block';
-    }, 3000);
-  };
-  onClick();
+  //   document.getElementById('load-more').style.display = 'none';
+  //   const onClick = () => {
+  //     setTimeout(() => {
+  //       document.getElementById('load-more').style.display = 'block';
+  //     }, 3000);
+  //   };
+  //   onClick();
 
-  listFilms.innerHTML = '';
+  //   listFilms.innerHTML = '';
 
   {
     fetchSearchMovies(searchQuery.value)
