@@ -42,7 +42,7 @@ function renderFilms(images) {
 }
 
 function loadMovieDataOnStart() {
-  gallery.innerHTML = '';
+  listFilms.innerHTML = '';
   fetchTrendingMovies()
     .then(function (images) {
       // handle success
