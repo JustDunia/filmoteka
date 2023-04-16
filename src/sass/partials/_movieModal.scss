@@ -1,0 +1,135 @@
+.modalClose {
+  cursor: pointer;
+  color: #222;
+  text-align: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+}
+
+.mod--buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 15px;
+}
+
+.btn-mod-color {
+  background: #ff6b01;
+  border: none;
+  color: #ffffff;
+}
+
+.mod {
+  position: fixed;
+  z-index: 3;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.watch {
+  width: 108px;
+  height: 44px;
+  border-radius: 5px;
+  background: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+.que {
+  width: 108px;
+  height: 44px;
+  border-radius: 5px;
+  background: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+.watch:hover,
+.que:hover {
+  background: #ff6b01;
+  border: 1px solid #ff6b01;
+  color: #ffffff;
+}
+
+.mod-title {
+  margin-top: 2px;
+  margin-bottom: 0px;
+}
+
+.row {
+  display: flex;
+  align-content: center;
+}
+
+.columnA {
+  flex: 40%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #8c8c8c;
+}
+.columnB {
+  flex: 60%;
+  font-family: 'Roboto';
+  font-style: bold;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+.mod-about {
+  font-family: 'Roboto';
+  font-style: bold;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+.mod-about-content {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.vote-mod {
+  padding: 1px 3px;
+  color: #fff;
+  background: #ff6b01;
+  border-radius: 5px;
+}
+
+.mod-content {
+  width: 880px;
+  background: #ffffff;
+  padding-top: 28px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+
+.mod-img {
+  width: 396px;
+  border-radius: 5px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
