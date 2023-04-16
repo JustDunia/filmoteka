@@ -50,15 +50,7 @@ function searchFilms(event) {
   searchMore = searchQuery.value;
   page = 1;
 
-  //   document.getElementById('load-more').style.display = 'none';
-  //   const onClick = () => {
-  //     setTimeout(() => {
-  //       document.getElementById('load-more').style.display = 'block';
-  //     }, 3000);
-  //   };
-  //   onClick();
-
-  //   listFilms.innerHTML = '';
+  listFilms.innerHTML = '';
 
   {
     fetchSearchMovies(searchQuery.value)
