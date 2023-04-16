@@ -13,8 +13,12 @@
 .movie-item {
   margin: 0 auto 20px;
   width: 280px;
-  height: 445px;
-  background-color: aquamarine;
+}
+
+.boxID {
+  width: 100%;
+  height: 402px;
+  object-fit: cover;
 }
 
 @media (width >= 768px) {
@@ -33,7 +37,10 @@
   .movie-item {
     margin: 0;
     width: 336px;
-    height: 494px;
+  }
+
+  .boxID {
+    height: 455px;
   }
 }
 
@@ -48,6 +55,9 @@
 
   .movie-item {
     width: 395px;
-    height: 634px;
+  }
+
+  .boxID {
+    height: 574px;
   }
 }
