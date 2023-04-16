@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { idToGenereTranslate } from './helpers';
-const listFilms = document.querySelector('.gallery');
+const listFilms = document.querySelector('.movies-list');
 const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
 
 let page = 1;
