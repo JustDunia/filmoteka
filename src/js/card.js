@@ -19,7 +19,7 @@ function renderFilms(images) {
   const card = images.data.results
     .map(image => {
       return `
-      <li class="gallery__movie-card">
+      <li class="movie-item">
         <img class="boxID" alt="${image.title} movie poster" movieID=${image.id} movieTitle="${
         image.title + ' ' + Number.parseInt(image.release_date)
       }" src="https://image.tmdb.org/t/p/w500${image.poster_path}"
