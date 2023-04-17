@@ -1,10 +1,11 @@
+import { debounce } from 'debounce';
 import axios from 'axios';
 import { idToGenereTranslate } from './helpers';
 const listFilms = document.querySelector('.movies-list');
 const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
-
+const imagesForm = document.querySelector('#header-form');
+const DEBOUNCE_DELAY = 300;
 let searchMore = '';
-const imagesForm = document.querySelector('#search-form');
 
 const fetchSearchMovies = async query => {
   const table = await axios.get(
