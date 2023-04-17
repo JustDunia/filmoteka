@@ -1,9 +1,9 @@
+import { debounce } from 'debounce';
 import axios from 'axios';
 import { idToGenereTranslate } from './helpers';
 const listFilms = document.querySelector('.movies-list');
 const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
 const imagesForm = document.querySelector('#header-form');
-// const filmBox = document.getElementById('#header-form__input');
 const DEBOUNCE_DELAY = 300;
 let searchMore = '';
 
@@ -63,5 +63,4 @@ function searchFilms(event) {
       });
   }
 }
-imagesForm.addEventListener('input', searchFilms);
-// imagesForm.addEventListener('input', debounce(searchFilms, DEBOUNCE_DELAY));
+imagesForm.addEventListener('submit', searchFilms);
