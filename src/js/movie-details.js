@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { idToGenereTranslate, modalToggle } from './helpers';
 
-const gallery = document.querySelector('.gallery');
+const gallery = document.querySelector('.movie-container');
 const overview = document.querySelector('.overview');
 const closeModal = document.querySelector('.modalClose');
 const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
@@ -50,7 +50,8 @@ function renderDetails(response) {
   overview.insertAdjacentHTML('afterbegin', markupList);
 }
 
-function handleDetailClick(event) {  
+//Pobiera informacje z atrybutów plakatu filmu (IMG)
+function handleDetailClick(event) {
   console.log(event.target.getAttribute('movieID'));
   console.log(event.target.getAttribute('movietitle'));
   if (event.target.nodeName !== 'IMG') {

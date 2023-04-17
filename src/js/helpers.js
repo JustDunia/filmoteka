@@ -1,7 +1,9 @@
+const backdrop = document.querySelector('.backdrop');
 const modal = document.querySelector('.mod');
 
 function modalToggle() {
   modal.classList.toggle('hidden');
+  backdrop.classList.toggle('hidden');
 }
 
 function idToGenereTranslate(genID) {
