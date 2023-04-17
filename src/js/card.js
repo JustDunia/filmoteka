@@ -28,11 +28,9 @@ function renderFilms(images) {
             <b>${image.title}</b>
           </p>
           <p class="info__genre">
-            <b>Views</b></br> ${image.genre_ids
-              .map(element => idToGenereTranslate(element))
-              .join(`, `)}
+            <b> ${image.genre_ids.map(element => idToGenereTranslate(element)).join(`, `)}
      | ${Number.parseInt(image.release_date)}
-          </p>
+          </b></p>
           
         </div>
       </li>`;
