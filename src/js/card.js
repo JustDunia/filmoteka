@@ -85,7 +85,7 @@ pagination.on('afterMove', async function (eventData) {
   totalItems = response.total_results;
   console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
   renderFilms(response.results);
-  pagination(totalItems);
+  
 });
 
 // initial load
