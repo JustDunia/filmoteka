@@ -1,116 +1,174 @@
-.responsive {
+.container {
   width: 100%;
-  max-width: 1400px;
-  height: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 320px) {
+    width: 320px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 1024px;
+  }
 }
-.header {
-  width: 100%;
-  max-width: 100vw;
-  height: 100vh;
-  // height: auto;
-  position: relative;
-  background-image: url('../images/mylibrary.jpg');
-  // background-position: center;
-  //   background-attachment: fixed;
+.header-library {
+  background-image: linear-gradient(to bottom, #100001 50%, #610315);
+}
+
+.header-library__container {
+  padding-top: 40px;
+  height: 230px;
+  background-size: 1024px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/header-library/mob-background-library-1x.jpg');
+
+  background-position: center;
+  background-size: 1024px auto;
+  // background-size: cover;
   background-repeat: no-repeat;
 
-  &__logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header-library/mob-background-library-2x.jpg');
+  }
 
-    display: inline;
-  }
-  &__logo--text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 35px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: white;
-  }
-  &__list {
-    position: absolute;
-    top: 20px;
-    right: 10px;
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 14px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: white;
-  }
-  &__buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    align-items: center;
-    margin-block: auto;
-  }
-  &__button {
-    height: 41.99999237060547px;
-    width: 147px;
-    color: white;
-    border-radius: 5px;
-    border: 1px solid #ffffff;
-    background-color: inherit;
-    transition: 0.3s;
-    display: inline-block;
-    // margin: 150px 150px 100px 150px;
-    box-sizing: border-box;
-    text-align: center;
+  @media screen and (min-width: 768px) {
+    height: 220px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header-library/tab-background-library-1x.jpg');
 
-    // position: absolute;
-    top: 50px;
-  }
-  &__button:hover {
-    background-color: #ff6b01;
-  }
-  &__nav {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-  }
-  // }
-  // &__button--first {
-  //   // position: absolute;
-  //   bottom: 35%;
-  //   left: 40%;
-  // }
-  // &__button--second {
-  //   // position: absolute;
-  //   // bottom: 35%;
-  //   // right: 40%;
-  // }
-
-  @media screen and (max-width: $mobile) {
-    .header__logo--text {
-      visibility: hidden;
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header-library/tab-background-library-2x.jpg');
     }
-    // .header__button--first {
-    //   bottom: 35%;
-    //   left: 20%;
-    // }
-    // .header__button--second {
-    //   bottom: 35%;
-    //   right: 20%;
-    // }
   }
-  @media screen and (max-width: $tablet) {
-    // .header__button--first {
-    //   display: block;
-    //   margin: 0.4em auto;
-    // }
-    // .header__button--second {
-    //   display: block;
-    //   margin: 0.4em auto;
-    // }
+
+  @media screen and (min-width: 1024px) {
+    width: 1024px;
+    height: 215px;
+    padding-left: 71px;
+    padding-right: 71px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header-library/desk-background-library-1x.jpg');
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header-library/desk-background-library-2x.jpg');
+    }
   }
+}
+
+.header-library-nav {
+  margin-bottom: 60px;
+}
+
+.header-library-nav__list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.header-library-nav__item:last-child {
+  margin-left: 40px;
+}
+
+.header-library-nav__item:first-child {
+  margin-right: auto;
+}
+
+.header-library-nav__button--logo {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.header-library-nav__logotext {
+  display: none;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.17;
+  color: #fff;
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin-left: 10px;
+  }
+}
+
+.header-library-nav__button {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  text-transform: uppercase;
+  background-color: inherit;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.header-library-nav__button--active {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+
+    display: block;
+    width: 69px;
+    height: 3px;
+
+    background-color: #ff6b08;
+  }
+}
+
+.header-library-buttons {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.header-library-buttons__item:first-child {
+  margin-right: 20px;
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+  }
+  @media screen and (min-width: 1024px) {
+    margin-right: 16px;
+  }
+}
+
+.header-library-buttons__button {
+  width: 129.5px;
+  height: 44px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  background-color: inherit;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    width: 152px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 148px;
+  }
+}
+
+.header-library-buttons__button:hover,
+.header-library-buttons__button--active {
+  background-color: #ff6b08;
+  border: 1px solid #ff6b08;
 }
