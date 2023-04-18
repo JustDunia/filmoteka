@@ -48,6 +48,7 @@ const pagination = new Pagination(document.getElementById('tui-pagination-contai
   visiblePages: 5,
   page: currentPage,
   centerAlign: false,
+  className: 'paginationjs-theme-blue',
   template: {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
@@ -84,9 +85,8 @@ pagination.on('afterMove', async function (eventData) {
   totalItems = response.total_results;
   console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
   renderFilms(response.results);
-  pagination.reset(totalItems);
+  pagination(totalItems);
 });
-
 
 // initial load
 fetchTrendingMovies(currentPage).then(response => {

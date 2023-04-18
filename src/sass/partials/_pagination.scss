@@ -1,0 +1,9 @@
+.tui-pagination .tui-is-selected, .tui-pagination strong {
+    color: #fff;
+    background: #bb1121;
+    border-color: #bb1121;
+    cursor: default;
+}
+.tui-pagination .tui-first-child.tui-is-selected {
+    border-left: 1px solid #bb1121;
+}
