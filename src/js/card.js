@@ -76,6 +76,16 @@ const pagination = new Pagination(document.getElementById('tui-pagination-contai
   },
 });
 
+pagination.on('afterMove', async function (eventData) {
+  console.log(`Page moved to ${eventData.page}`);
+  currentPage = eventData.page;
+  console.log('currentPage:', currentPage); // check that currentPage is being updated correctly
+  const response = await fetchTrendingMovies(currentPage);
+  totalItems = response.total_results;
+  console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
+  renderFilms(response.results);
+  pagination.reset(totalItems);
+});
 
 
 // initial load
