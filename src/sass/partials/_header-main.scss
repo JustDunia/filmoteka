@@ -28,6 +28,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .logo__name {
@@ -39,8 +40,8 @@
 
 .header-nav__list {
   display: flex;
+  flex-wrap: wrap;
   gap: 39px;
-  color: #ffffff;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
@@ -50,13 +51,14 @@
 }
 
 .header-nav__link {
+  display: block;
   text-decoration: none;
-  color: currentColor;
-  transition: transform 250ms ease, box-shadow 250ms ease;
+  color: #ffffff;
+  transition: transform 500ms ease;
 
   &:hover,
   &:focus {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }
 .header-nav__link--active {
@@ -65,10 +67,12 @@
   &::after {
     position: absolute;
     left: 0;
+    display: block;
     content: '';
     width: 100%;
     height: 3px;
     background-color: #ff001b;
+    bottom: -3px;
   }
 }
 
@@ -92,8 +96,8 @@
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #ffffff;
-  transition: border-bottom 100ms ease, transform 500ms ease;
-
+  transition: transform 500ms ease;
+  margin-bottom: 20px;
   &:hover,
   &:focus {
     transform: scale(1.1);
@@ -116,5 +120,30 @@
 }
 .header-form__icon:hover,
 .header-form__icon:focus {
-  transform: scale(1.3);
+  transform: scale(1.6);
+  transition: transform 0.25s ease;
+}
+
+.logo {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 500ms ease;
+  gap: 10px;
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+}
+.header-form__alert {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  color: #ff001b;
+  text-align: center;
+}
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
