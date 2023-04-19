@@ -34,17 +34,15 @@ function renderFilms(images) {
             <b>${image.title}</b>
           </p>
           <p class="info__genre">
-            <b>Views</b></br> ${image.genre_ids
+            <b> ${image.genre_ids
               .map(element => idToGenereTranslate(element))
-              .join(`, `)}
-     | ${Number.parseInt(image.release_date)}
-          </p>
-          
+              .join(`, `)} | ${Number.parseInt(image.release_date)}
+          </b></p>
         </div>
       </li>`;
     })
     .join('');
-  listFilms.insertAdjacentHTML('beforeend', card);
+  listFilms.innerHTML = card;
 }
 
 function searchFilms(event) {
@@ -91,7 +89,7 @@ function searchFilms(event) {
         '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
-    },   
+    },
   });
 
   pagination.on('afterMove', async function (eventData) {
@@ -101,10 +99,8 @@ function searchFilms(event) {
     const response = await fetchSearchMovies(searchQuery.value, currentPage);
     totalItems = response.total_results;
     console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
-    listFilms.innerHTML = []+[];
+    listFilms.innerHTML = [] + [];
     renderFilms(response);
   });
 }
 imagesForm.addEventListener('submit', searchFilms);
-
-
