@@ -1,0 +1,32 @@
+.footer {
+  background-color: #f7f7f7;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  color: #545454;
+
+  &__icon {
+    width: 14px;
+    height: 14px;
+    fill: #ff6b08;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    height: 79px;
+    flex-direction: row;
+    gap: 4px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    height: 77px;
+  }
+}
