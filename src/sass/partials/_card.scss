@@ -1,0 +1,26 @@
+.boxID {
+  border-radius: 5px 5px 0px 0px;
+}
+.movie-item {
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+.movie-item:hover {
+  transform: scale(1.1) rotate(-2deg);
+  transition: 0.5s;
+  background-color: white;
+}
+
+.info {
+  &__title {
+    font: var(--main-font);
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+  &__genre {
+    font: var(--main-font);
+    color: #bb1121;
+    padding: 8px;
+  }
+}

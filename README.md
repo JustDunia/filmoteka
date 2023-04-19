@@ -1,4 +1,4 @@
-# parcel-project-template
+# parcel-project-template //Witaj Mikołaju nasz JSowy Guru
 
 ## Zalezności
 
@@ -14,10 +14,10 @@ npm ci
 
 ### Praca
 
-Włączyć tryp pracy.
+Włączyć tryb pracy.
 
 ```shell
-npm run dev
+npm run dev or npm start
 ```
 
 W przeglądarce przejść na [http://localhost:1234](http://localhost:1234).
