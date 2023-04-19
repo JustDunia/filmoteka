@@ -48,7 +48,7 @@ const pagination = new Pagination(document.getElementById('tui-pagination-contai
   visiblePages: 5,
   page: currentPage,
   centerAlign: false,
-  className: 'paginationjs-theme-blue',
+  
   template: {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
@@ -66,15 +66,15 @@ const pagination = new Pagination(document.getElementById('tui-pagination-contai
       '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
-  onPageMove: async function (event, page) {
-    currentPage = page;
-    console.log('currentPage:', currentPage); // check that currentPage is being updated correctly
-    const response = await fetchTrendingMovies(currentPage);
-    totalItems = response.total_results;
-    console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
-    renderFilms(response.results);
-    pagination.reset(totalItems);
-  },
+  // onPageMove: async function (event, page) {
+  //   currentPage = page;
+  //   console.log('currentPage:', currentPage); // check that currentPage is being updated correctly
+  //   const response = await fetchTrendingMovies(currentPage);
+  //   totalItems = response.total_results;
+  //   console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
+  //   renderFilms(response.results);
+  //   pagination.reset(totalItems);
+  // },
 });
 
 pagination.on('afterMove', async function (eventData) {
