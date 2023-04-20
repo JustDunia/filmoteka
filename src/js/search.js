@@ -8,6 +8,7 @@ const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
 const imagesForm = document.querySelector('#header-form');
 const DEBOUNCE_DELAY = 300;
 let searchMore = '';
+const spinner = document.querySelector('.sk-chase');
 
 let currentPage = 1;
 let totalItems = 0;
@@ -42,7 +43,8 @@ function renderFilms(images) {
       </li>`;
     })
     .join('');
-  listFilms.innerHTML = card;
+  listFilms.insertAdjacentHTML('beforeend', card);
+  spinner.classList.add('hidden');
 }
 
 function searchFilms(event) {
