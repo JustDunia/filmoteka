@@ -6,8 +6,10 @@ const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
 const imagesForm = document.querySelector('#header-form');
 const DEBOUNCE_DELAY = 300;
 let searchMore = '';
+const spinner = document.querySelector('.sk-chase');
 
 const fetchSearchMovies = async query => {
+  spinner.classList.remove('hidden');
   const table = await axios.get(
     `
     https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`,
@@ -40,6 +42,7 @@ function renderFilms(images) {
     })
     .join('');
   listFilms.insertAdjacentHTML('beforeend', card);
+  spinner.classList.add('hidden');
 }
 
 function searchFilms(event) {

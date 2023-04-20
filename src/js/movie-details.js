@@ -5,12 +5,16 @@ const gallery = document.querySelector('.movie-container');
 const overview = document.querySelector('.overview');
 const closeModal = document.querySelector('.modalClose');
 const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
+
+const spinner = document.querySelector('.sk-chase');
 let exportData;
+
 
 closeModal.onclick = modalToggle;
 
 // Zapytanie do API TMDB zwraca obiekt odpowiedzi
 const fetchDetails = async (id = 1771) => {
+  spinner.classList.remove('hidden');
   const table = await axios.get(`
 
 https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`);
@@ -49,6 +53,7 @@ function renderDetails(response) {
       <p class="mod-about-content">${table.overview}</p>
   `;
   overview.insertAdjacentHTML('afterbegin', markupList);
+  spinner.classList.add('hidden');
 }
 
 //Pobiera informacje z atrybutów plakatu filmu (IMG)
