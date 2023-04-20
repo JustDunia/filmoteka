@@ -19,7 +19,7 @@ const fetchTrendingMovies = async page => {
 };
 
 function renderFilms(images) {
-  const card = images.data.results
+  const card = images
     .map(image => {
       return `
       <li class="movie-item">
@@ -91,6 +91,7 @@ pagination.on('afterMove', async function (eventData) {
 fetchTrendingMovies(currentPage).then(response => {
   totalItems = response.total_results;
   pagination.reset(totalItems);
+  console.log(response.results);
   renderFilms(response.results);
   console.log('currentPage:', currentPage);
 });
