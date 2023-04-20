@@ -5,6 +5,7 @@ const gallery = document.querySelector('.movie-container');
 const overview = document.querySelector('.overview');
 const closeModal = document.querySelector('.modalClose');
 const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
+let exportData;
 
 closeModal.onclick = modalToggle;
 
@@ -13,13 +14,13 @@ const fetchDetails = async (id = 1771) => {
   const table = await axios.get(`
 
 https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`);
-  console.log(table);
   return table;
 };
 
 // Renderowanie zawartości modala
 function renderDetails(response) {
   const table = response.data;
+  exportData = response.data;
   console.log(table);
 
   const markupList = `<image class="mod-img" src="https://image.tmdb.org/t/p/w500${
@@ -71,3 +72,4 @@ function handleDetailClick(event) {
 }
 
 gallery.onclick = handleDetailClick;
+export { exportData };
