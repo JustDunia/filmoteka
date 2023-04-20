@@ -24,14 +24,14 @@
 .header-library__container {
   padding-top: 40px;
   height: 230px;
-  background-size: 1024px;
+  // background-size: 1024px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header-library/mob-background-library-1x.jpg');
 
   background-position: center;
   background-size: 1024px auto;
   
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
 
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
