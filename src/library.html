@@ -15,11 +15,45 @@
     <!-- W taki sposbu dodajemy fragmenty w główny HTML-plik strony. -->
     <!-- <include src="./partials/example.html"></include> -->
     <include src="./partials/mylibrary-header.html"></include>
-
+     <include src="./partials/movie-modal.html"></include>
+<include src="./partials/main-container.html"></include>
     <!-- <include src="./partials/main-container.html"></include> -->
+      <include src="./partials/spinner.html"></include>
     <include src="./partials/footer.html"></include>
 
     <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
     <script src="./index.js" type="module"></script>
+  <script>
+const listFilms = document.querySelector('.movies-list');
+
+     const parsed = JSON.parse(localStorage.getItem('WATCH_KEY'));
+console.log(typeof parsed)
+
+function renderFilms(images) {
+    
+    const card = parsed
+      .map(image => {
+        return `
+    <li class="movie-item">
+      <img class="boxID" alt="${image.title} movie poster" movieID="${image.id}" movieTitle="${
+          image.title + ' ' + image.releaseDate
+        }" src="${image.poster}">
+      <div class="info">
+        <p class="info__title">
+          <b>${image.title}</b>
+        </p>
+        <p class="info__genre">
+          <b> ${image.genres} | ${image.releaseDate}</b>
+        </p>
+      </div>
+    </li>`;
+      })
+      .join('');
+  listFilms.innerHTML = card;
+}
+
+renderFilms(parsed);
+  </script>
+  <script src="./js/movie-details.js" type="module"></script>
   </body>
 </html>
