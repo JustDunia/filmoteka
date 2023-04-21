@@ -1,36 +1,63 @@
 import { exportData } from "./movie-details";
+import { idToGenereTranslate } from './helpers';
 
 const watchButton = document.querySelector('.watch');
 const quequeButton = document.querySelector('.que');
+const url = "https://image.tmdb.org/t/p/w500";
 
 function addToWatched() {
-    let watched = localStorage.getItem('WATCH_KEY');
-    movieDataToJSON = JSON.stringify(exportData);
+    const movieDetailsToSave = {
+        title: exportData.title,
+        id: exportData.id,
+        releaseDate: Number.parseInt(exportData.release_date),
+        genres: exportData.genres
+            .map(genre => idToGenereTranslate(genre.id))
+            .join(`, `),
+        poster: url + exportData.poster_path,
+        vote: exportData.vote_average.toFixed(1),
+        popularity: exportData.popularity.toFixed(1),
+        org_title: exportData.original_title,
+        about: exportData.overview,
+    };
 
-    if (watched === null) {
-        watched = [];
-        watched.push(movieDataToJSON);
-        return localStorage.setItem('WATCH_KEY', watched)
+    let watched = localStorage.getItem('WATCH_KEY');
+    movieDataToJSON = JSON.stringify([movieDetailsToSave]);
+
+
+    if (!watched) {
+        localStorage.setItem('WATCH_KEY', movieDataToJSON);
     }
-    
+
     const arrayWatched = watched.split(',');
 
     if (watched.includes(exportData.id)) {
         return
     } else {
         arrayWatched.push(movieDataToJSON)
-        return localStorage.setItem('WATCH_KEY', arrayWatched);
+        localStorage.setItem('WATCH_KEY', arrayWatched);
     };
 };
 
 function addToQuequed() {
-    let quequed = localStorage.getItem('QUEQUE_KEY');
-    movieDataToJSON = JSON.stringify(exportData);
+    const movieDetailsToSave = {
+        title: exportData.title,
+        id: exportData.id,
+        releaseDate: Number.parseInt(exportData.release_date),
+        genres: exportData.genres
+            .map(genre => idToGenereTranslate(genre.id))
+            .join(`, `),
+        poster: url + exportData.poster_path,
+        vote: exportData.vote_average.toFixed(1),
+        popularity: exportData.popularity.toFixed(1),
+        org_title: exportData.original_title,
+        about: exportData.overview,
+    };
 
-    if (quequed === null) {
-        quequed = [];
-        quequed.push(movieDataToJSON);
-        return localStorage.setItem('QUEQUE_KEY', quequed)
+    let quequed = localStorage.getItem('QUEQUE_KEY');
+    movieDataToJSON = JSON.stringify(movieDetailsToSave);
+
+    if (!quequed) {
+        localStorage.setItem('QUEQUE_KEY', movieDataToJSON)
     }
     
     const arrayQuequed = quequed.split(',');
@@ -39,7 +66,7 @@ function addToQuequed() {
         return
     } else {
         arrayQuequed.push(movieDataToJSON)
-        return localStorage.setItem('QUEQUE_KEY', arrayQuequed);
+        localStorage.setItem('QUEQUE_KEY', arrayQuequed);
     };
 };
 
