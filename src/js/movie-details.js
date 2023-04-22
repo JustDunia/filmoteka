@@ -72,14 +72,13 @@ function handleDetailClick(event) {
     .then(function (response) {
       // handle success
       renderDetails(response);
-      watchButton.innerHTML = 'ADD TO WxHED';
+      watchButton.innerHTML = 'ADD TO WATCHED';
       watchButton.classList.remove('btn-mod-color');
-      queueButton.innerHTML = 'ADD TO QxEUE';
+      queueButton.innerHTML = 'ADD TO QUEUE';
       queueButton.classList.remove('btn-mod-color'); 
         console.log(exportData.title);
       const parsedWatch = JSON.parse(localStorage.getItem('WATCH_KEY'));
-      const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));
-      console.log(parsedWatch.find(movie => movie.title === exportData.title));
+      const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));      
         if (parsedWatch.find(movie => movie.title === exportData.title)) {
           watchButton.innerHTML = 'ADDED TO WATCHED';
           watchButton.classList.add('btn-mod-color');           

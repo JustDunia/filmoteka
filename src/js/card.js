@@ -91,7 +91,7 @@ pagination.on('afterMove', async function (eventData) {
 fetchTrendingMovies(currentPage).then(response => {
   totalItems = response.total_results;
   pagination.reset(totalItems);
-  console.log(response.results);
+  console.log(response);
   renderFilms(response.results);
   console.log('currentPage:', currentPage);
 });
