@@ -23,6 +23,7 @@
   align-items: center;
   align-content: center;
   gap: 15px;
+   
 }
 
 .mod {
@@ -44,6 +45,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  cursor: pointer;
 }
 .que {
   width: 108px;
@@ -55,6 +57,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  cursor: pointer;
 }
 
 .btn-mod-color {
@@ -153,7 +156,7 @@
 }
 
 .vplayer {
-  margin-top: 15px;
+  margin-top: 30vh;
   margin-bottom: 30px;
   position: relative;
   padding-top: 56.25%;

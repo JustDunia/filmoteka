@@ -137,7 +137,10 @@ function renderDetails(response) {
   <h3 class="mod-about">ABOUT</h3>
       <p class="mod-about-content">${table.overview}</p>
   `;
-  overview.insertAdjacentHTML('afterbegin', markupList);
+  overview.insertAdjacentHTML('afterbegin', markupList.replaceAll(
+    'https://image.tmdb.org/t/p/w500null',
+    'https://mateuszwoj-bit.github.io/GOIT-team-project-ice/squoosh-how1-desktop.b9f13a59.png',
+  ));
   spinner.classList.add('hidden');
 }
 
@@ -161,11 +164,11 @@ function handleDetailClick(event) {
       console.log(exportData.title);
       const parsedWatch = JSON.parse(localStorage.getItem('WATCH_KEY'));
       const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));
-     if (parsedWatch && parsedWatch.find(movie => movie.title === exportData.title)) {
+     if (parsedWatch.find(movie => movie.title === exportData.title)) {
        watchButton.innerHTML = 'ADDED TO WATCHED';
        watchButton.classList.add('btn-mod-color');
      }
-     if (parsedQue && parsedQue.find(movie => movie.title === exportData.title)) {
+     if (parsedQue.find(movie => movie.title === exportData.title)) {
        queueButton.innerHTML = 'ADDED TO QUEUE';
        queueButton.classList.add('btn-mod-color');
      }
