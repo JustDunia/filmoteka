@@ -7,7 +7,7 @@ const closeModal = document.querySelector('.modalClose');
 const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
 
 const watchButton = document.querySelector('.watch');
-const quequeButton = document.querySelector('.que');
+const queueButton = document.querySelector('.que');
 
 const spinner = document.querySelector('.sk-chase');
 let exportData;
@@ -81,6 +81,8 @@ function handleDetailClick(event) {
           watchButton.innerHTML = 'ADDED TO WATCHED';
           watchButton.classList.add('btn-mod-color');
         }
+      queueButton.innerHTML = 'ADD TO QUEUE';
+      this.classList.remove('btn-mod-color');  
     })
     .catch(function (error) {
       // handle error
