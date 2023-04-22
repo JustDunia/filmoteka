@@ -6,6 +6,9 @@ const overview = document.querySelector('.overview');
 const closeModal = document.querySelector('.modalClose');
 const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
 
+const watchButton = document.querySelector('.watch');
+const queueButton = document.querySelector('.que');
+
 const spinner = document.querySelector('.sk-chase');
 let exportData;
 
@@ -69,6 +72,21 @@ function handleDetailClick(event) {
     .then(function (response) {
       // handle success
       renderDetails(response);
+      watchButton.innerHTML = 'ADD TO WATCHED';
+      watchButton.classList.remove('btn-mod-color');
+      queueButton.innerHTML = 'ADD TO QUEUE';
+      queueButton.classList.remove('btn-mod-color'); 
+        console.log(exportData.title);
+      const parsedWatch = JSON.parse(localStorage.getItem('WATCH_KEY'));
+      const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));      
+        if (parsedWatch.find(movie => movie.title === exportData.title)) {
+          watchButton.innerHTML = 'ADDED TO WATCHED';
+          watchButton.classList.add('btn-mod-color');           
+      }
+      if (parsedQue.find(movie => movie.title === exportData.title)) {
+        queueButton.innerHTML = 'ADDED TO QUEUE';
+        queueButton.classList.add('btn-mod-color');
+      }
     })
     .catch(function (error) {
       // handle error

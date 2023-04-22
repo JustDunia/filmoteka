@@ -20,11 +20,7 @@
   gap: 15px;
 }
 
-.btn-mod-color {
-  background: #ff6b01;
-  border: none;
-  color: #ffffff;
-}
+
 
 .mod {
   position: fixed;
@@ -57,10 +53,22 @@
   font-size: 12px;
   line-height: 16px;
 }
+
+.btn-mod-color {
+  background: #ff6b01;
+  border: none;
+  color: #ffffff;
+}
 .watch:hover,
 .que:hover {
   background: #ff6b01;
   border: 1px solid #ff6b01;
+  color: #ffffff;
+}
+
+.btn-mod-color {
+  background: #ff6b01;
+  border: none;
   color: #ffffff;
 }
 
