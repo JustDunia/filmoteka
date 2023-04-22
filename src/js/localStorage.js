@@ -51,16 +51,16 @@ function addToQueued() {
         about: exportData.overview,
     };
 
-    const quequed = localStorage.getItem('QUEUE_KEY');
+    const queued = localStorage.getItem('QUEUE_KEY');
 
-    if (!quequed) {
+    if (!queued) {
         localStorage.setItem('QUEUE_KEY', JSON.stringify([movieDetailsToSave]));
         return
     }
 
-    const savedMovies = JSON.parse(quequed);
+    const savedMovies = JSON.parse(queued);
 
-    if (quequed.includes(exportData.id)) {
+    if (queued.includes(exportData.id)) {
         return
     } else {
         localStorage.setItem('QUEUE_KEY', JSON.stringify([...savedMovies, movieDetailsToSave]));
