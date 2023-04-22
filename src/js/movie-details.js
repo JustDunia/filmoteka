@@ -15,6 +15,88 @@ let exportData;
 
 closeModal.onclick = modalToggle;
 
+const fetchProvider = async (id = 1771) => {
+  const table = await axios.get(
+    `
+https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=4e9fa3fc2487236fdff94602c5bb9552`,
+  );
+  console.log(table);
+  return table;
+};
+
+// const fetchGenere = async q => { 
+//   const table = await axios.get(
+//     `
+// https://youtube.googleapis.com/youtube/v3/search?q=${q}&key=AIzaSyB8TTc_5353cPL4Gqfo9xPQBbRH9hfG-YA`,
+//   );
+//   return table;
+// };
+
+function gatherDetailsProv(response) {
+  const table = response.data.results.PL;
+  console.log('test');
+  if (table !== undefined && table.flatrate !== undefined) {
+    // console.log(table.flatrate[0].provider_name.includes === "Netflix")
+    console.log(table.flatrate[0].provider_name === 'Netflix');
+    const NMark = `<a href="https://www.netflix.com/search?q=${exportData.title}" target="_blank" rel="noreferrer noopener"><image class="stream" src="https://www.themoviedb.org/t/p/original${table.flatrate[0].logo_path}" width="50" height="50"></a>   
+   `;
+
+    const markupList = table.flatrate
+      .filter(image => image.provider_name !== 'Netflix')
+      .map(
+        image => `<image class="stream" src="https://www.themoviedb.org/t/p/original${image.logo_path}" width="50" height="50">   
+   `,
+      )
+      .join(``);
+    overview.insertAdjacentHTML('beforeend', `<p class="mod-ab">STREAM</p>`);
+    if (table.flatrate[0].provider_name === 'Netflix') {
+      overview.insertAdjacentHTML('beforeend', NMark);
+    }
+    overview.insertAdjacentHTML('beforeend', markupList);
+    document.querySelector('.mod--buttons').classList.remove('mod--buttons-alt');
+  } else {
+    document.querySelector('.mod--buttons').classList.add('mod--buttons-alt');
+  }
+}
+
+function gatherDetailsForYt(response) {
+  const table = response.data;
+  detailsObjectYouTube = {
+    snipet: table.items[0].id.videoId,
+  };
+  console.log(detailsObjectYouTube);
+}
+
+var vplayer = document.querySelectorAll('.vplayer');
+
+function YoutubeLoad(q) {
+  var vplayer = document.querySelectorAll('.vplayer');
+
+  for (var i = 0; i < vplayer.length; i++) {
+    // console.log(vplayer[i].dataset.v);
+    var source = 'https://img.youtube.com/vi/' + q + '/sddefault.jpg';
+
+    var image = new Image();
+    image.src = source;
+    image.addEventListener(
+      'load',
+      (function () {
+        vplayer[i].appendChild(image);
+      })(i),
+    );
+
+    function LoadYT() {
+      var iframe = document.createElement('iframe');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('src', 'https://www.youtube.com/embed/' + q + '?rel=0&showinfo=0');
+      vplayer[i].innerHTML = '';
+      vplayer[i].appendChild(iframe);
+    }
+    LoadYT();
+  }
+}
+
 // Zapytanie do API TMDB zwraca obiekt odpowiedzi
 const fetchDetails = async (id = 1771) => {
   spinner.classList.remove('hidden');
@@ -75,23 +157,48 @@ function handleDetailClick(event) {
       watchButton.innerHTML = 'ADD TO WATCHED';
       watchButton.classList.remove('btn-mod-color');
       queueButton.innerHTML = 'ADD TO QUEUE';
-      queueButton.classList.remove('btn-mod-color'); 
-        console.log(exportData.title);
+      queueButton.classList.remove('btn-mod-color');
+      console.log(exportData.title);
       const parsedWatch = JSON.parse(localStorage.getItem('WATCH_KEY'));
-      const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));      
-        if (parsedWatch.find(movie => movie.title === exportData.title)) {
-          watchButton.innerHTML = 'ADDED TO WATCHED';
-          watchButton.classList.add('btn-mod-color');           
-      }
-      if (parsedQue.find(movie => movie.title === exportData.title)) {
-        queueButton.innerHTML = 'ADDED TO QUEUE';
-        queueButton.classList.add('btn-mod-color');
-      }
+      const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));
+     if (parsedWatch && parsedWatch.find(movie => movie.title === exportData.title)) {
+       watchButton.innerHTML = 'ADDED TO WATCHED';
+       watchButton.classList.add('btn-mod-color');
+     }
+     if (parsedQue && parsedQue.find(movie => movie.title === exportData.title)) {
+       queueButton.innerHTML = 'ADDED TO QUEUE';
+       queueButton.classList.add('btn-mod-color');
+     }
     })
+    .then(
+      fetchProvider(event.target.getAttribute('movieID'))
+        .then(function (response) {
+          // handle success
+          console.log('prov');
+          console.log(response);
+          gatherDetailsProv(response);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        }),
+    )
     .catch(function (error) {
       // handle error
       console.log(error);
     });
+  // fetchGenere(event.target.getAttribute('movietitle'))
+  //   .then(function (response) {
+  //     // handle success
+  //     console.log(response);
+  //     console.log(response.data.items[0].id.videoId);
+  //     gatherDetailsForYt(response);
+  //     YoutubeLoad(detailsObjectYouTube.snipet);
+  //   })
+  //   .catch(function (error) {
+  //     // handle error
+  //     console.log(error);
+  //   });  
 }
 
 gallery.onclick = handleDetailClick;

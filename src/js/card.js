@@ -7,7 +7,7 @@ const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
 
 let currentPage = 1;
 let totalItems = 0;
-
+console.log("dupa")
 const fetchTrendingMovies = async page => {
   const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/week`, {
     params: {
@@ -24,23 +24,34 @@ function renderFilms(images) {
       return `
       <li class="movie-item">
         <img class="boxID" alt="${image.title} movie poster" movieID=${image.id} movieTitle="${
-        image.title + ' ' + Number.parseInt(image.release_date)
+        image.title
+      } | ${
+        isNaN(Number.parseInt(image.release_date))
+          ? 'No year info'
+          : Number.parseInt(image.release_date)
       }" src="https://image.tmdb.org/t/p/w500${image.poster_path}"
         <div class="info">
           <p class="info__title">
             <b>${image.title}</b>
           </p>
           <p class="info__genre">
-            <b> ${image.genre_ids
-              .map(element => idToGenereTranslate(element))
-              .join(`, `)} | ${Number.parseInt(image.release_date)}
+            <b> ${image.genre_ids.map(element => idToGenereTranslate(element)).join(`, `)} | ${
+        isNaN(Number.parseInt(image.release_date))
+          ? 'No year info'
+          : Number.parseInt(image.release_date)
+      }
           </b></p>
         </div>
       </li>`;
     })
     .join('');
-  listFilms.innerHTML = card;
+  listFilms.innerHTML = card.replaceAll(
+    'https://image.tmdb.org/t/p/w500null',
+    'https://mateuszwoj-bit.github.io/GOIT-team-project-ice/squoosh-how1-desktop.b9f13a59.png',
+  );
 }
+
+
 
 const pagination = new Pagination(document.getElementById('tui-pagination-container'), {
   totalItems: totalItems,
