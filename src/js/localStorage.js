@@ -58,7 +58,7 @@ function addToQueued() {
 
   queueButton.innerHTML = 'ADDED TO QUEUE';
   queueButton.classList.add('btn-mod-color');
-  console.log("dupa")
+
 
   const queued = localStorage.getItem('QUEUE_KEY');
 
@@ -85,7 +85,6 @@ function addToQueued() {
 
 watchButton.addEventListener('click', addToWatched);
 queueButton.addEventListener('click', addToQueued);
-
 
 //odczytywanie danych z localStorage
 const getDataW = localStorage.getItem('WATCH_KEY');
