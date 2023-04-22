@@ -72,17 +72,22 @@ function handleDetailClick(event) {
     .then(function (response) {
       // handle success
       renderDetails(response);
-      watchButton.innerHTML = 'ADD TO WATCHED';
-    watchButton.classList.remove('btn-mod-color');
+      watchButton.innerHTML = 'ADD TO WxHED';
+      watchButton.classList.remove('btn-mod-color');
+      queueButton.innerHTML = 'ADD TO QxEUE';
+      queueButton.classList.remove('btn-mod-color'); 
         console.log(exportData.title);
-      const parsed = JSON.parse(localStorage.getItem('WATCH_KEY'));
-      console.log(exportData.title === parsed[0].title);
-        if (exportData.title === parsed[0].title) {
+      const parsedWatch = JSON.parse(localStorage.getItem('WATCH_KEY'));
+      const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));
+      console.log(parsedWatch.find(movie => movie.title === exportData.title));
+        if (parsedWatch.find(movie => movie.title === exportData.title)) {
           watchButton.innerHTML = 'ADDED TO WATCHED';
-          watchButton.classList.add('btn-mod-color');
-        }
-      queueButton.innerHTML = 'ADD TO QUEUE';
-      this.classList.remove('btn-mod-color');  
+          watchButton.classList.add('btn-mod-color');           
+      }
+      if (parsedQue.find(movie => movie.title === exportData.title)) {
+        queueButton.innerHTML = 'ADDED TO QUEUE';
+        queueButton.classList.add('btn-mod-color');
+      }
     })
     .catch(function (error) {
       // handle error
