@@ -1,4 +1,21 @@
 <main>
+  <section class="movie">
+    <div class="movie__container">
+      <picture>
+        <source srcset="./images/nomovies-mylibrary/nomovies-komunikat-1280-desktop" media="(min-width: 1200px)" />
+        <!-- <source srcset="images/squoosh-how1-desktopx2.png 2x" media="(min-width: 1200px)" /> -->
+        <source srcset="./images/nomovies-mylibrary/nomovies-komunikat-768-tablet.png" media="(min-width: 768px)" />
+        <!-- <source srcset="images/squoosh-how2-tabletx2.png 2x" media="(min-width: 768px)" /> -->
+        <source srcset="./images/nomovies-mylibrary/nomovies-komunikat-320-phone.png" media="(max-width: 767px)" />
+        <!-- <source srcset="images/squoosh-how3-mobilex2.png 2x" media="(max-width: 767px)" /> -->
+        <img
+          class="movie__img"
+          src='./images/nomovies-mylibrary/nomovies-komunikat-1280-desktop'
+          alt='There-are-no-movies-in-your-library'
+        />
+      </picture>
+    </div>
+  </section>
   <section class="movie-container">
     <ul class="movies-list"></ul>
   </section>

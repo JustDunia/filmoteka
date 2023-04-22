@@ -1,0 +1,50 @@
+// .movie-img {
+//   margin: 0 auto;
+//   max-width: 320px;
+//   padding: 20px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   border-radius: 1px solid;
+// //   &__movie-communique {
+// //     background-size: 320px 20%;
+// //     border: 1px solid;
+// //     height: auto;
+// //     width: auto;
+//   }
+
+// .movie {
+//   margin: 0 auto;
+//   margin-left: 0;
+//   margin-right: 0;
+//   background-position: center;
+//   background-size: cover;
+
+.movie {
+  background-color: #fff5f6;
+  background-image: url('images/nomovies-mylibrary/nomovies-komunikat-320-phone.png');
+  background-size: 100%;
+  padding-top: 125px;
+  background-repeat: no-repeat;
+  background-position: right 0 bottom 100px;
+  text-align: center;
+  align-items: flex-end;
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .movie {
+    background-image: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .movie {
+    background-image: url('images/nomovies-mylibrary/nomovies-komunikat-1280-desktop.png');
+    background-position: bottom;
+    background-size: 1282px 534px;
+  }
+}
