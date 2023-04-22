@@ -22,7 +22,7 @@ function addToWatched() {
 
     let watched = localStorage.getItem('WATCH_KEY');
     movieDataToJSON = JSON.stringify([movieDetailsToSave]);
-
+this.innerHTML = 'ADDED TO WATCHED';
 
     if (!watched) {
         localStorage.setItem('WATCH_KEY', movieDataToJSON);
@@ -30,9 +30,12 @@ function addToWatched() {
 
     const arrayWatched = watched.split(',');
 
-    if (watched.includes(exportData.id)) {
+    if (watched.includes(exportData.id)) { 
+        this.innerHTML = 'ADD TO WATCHED';
+        watchButton.classList.remove('btn-mod-color');
         return
     } else {
+        
         arrayWatched.push(movieDataToJSON)
         localStorage.setItem('WATCH_KEY', arrayWatched);
     };

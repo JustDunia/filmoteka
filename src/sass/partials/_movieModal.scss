@@ -20,11 +20,7 @@
   gap: 15px;
 }
 
-.btn-mod-color {
-  background: #ff6b01;
-  border: none;
-  color: #ffffff;
-}
+
 
 .mod {
   position: fixed;
@@ -61,6 +57,12 @@
 .que:hover {
   background: #ff6b01;
   border: 1px solid #ff6b01;
+  color: #ffffff;
+}
+
+.btn-mod-color {
+  background: #ff6b01;
+  border: none;
   color: #ffffff;
 }
 

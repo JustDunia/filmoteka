@@ -1,38 +1,42 @@
-// import Pagination from 'tui-pagination'; /* ES6 */
+import Pagination from 'tui-pagination';
+import '../sass/main.scss';
 
-// // const Pagination = tui.Pagination;
-// const Pagination = require('tui-pagination'); /* CommonJS */
+let currentPage = 1;
+let totalItems = 0;
 
-// const options = {
-//   totalItems: 1000,
-//   itemsPerPage: 100,
-//   visiblePages: 100,
-//   page: 7,
-//   centerAlign: false,
-//   firstItemClassName: 'tui-first-child',
-//   lastItemClassName: 'tui-last-child',
-//   template: {
-//     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-//     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-//     moveButton:
-//       '<a href="#" class="tui-page-btn tui-{{type}}">' +
-//       '<span class="tui-ico-{{type}}">{{type}}</span>' +
-//       '</a>',
-//     disabledMoveButton:
-//       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-//       '<span class="tui-ico-{{type}}">{{type}}</span>' +
-//       '</span>',
-//     moreButton:
-//       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-//       '<span class="tui-ico-ellip">...</span>' +
-//       '</a>',
-//   },
-// };
+const pagination = new Pagination(document.getElementById('tui-pagination-container'), {
+  totalItems: totalItems,
+  itemsPerPage: 20,
+  visiblePages: 5,
+  page: currentPage,
+  centerAlign: false,
 
-// const container = document.getElementById('tui-pagination-container');
-// const instance = new Pagination(container, options);
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    disabledPage: '<span class="tui-page-btn tui-is-disabled">{{page}}</span>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+  // onPageMove: async function (event, page) {
+  //   currentPage = page;
+  //   console.log('currentPage:', currentPage); // check that currentPage is being updated correctly
+  //   const response = await fetchTrendingMovies(currentPage);
+  //   totalItems = response.total_results;
+  //   console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
+  //   renderFilms(response.results);
+  //   pagination.reset(totalItems);
+  // },
+});
 
-
-
-// instance.getCurrentPage();
-
+ pagination.reset(totalItems);
