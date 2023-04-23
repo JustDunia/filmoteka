@@ -109,7 +109,7 @@
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  overflow-y: scroll;
+  overflow-y: visible;
 }
 
 .mod-title {
@@ -416,10 +416,23 @@
     box-shadow: 8px 8px 24px 0px rgb(66, 68, 90);
   }
   .mod--buttons {
+    margin: 0px;
     gap: 15px;
-    margin-left: 340px;
+  }
+  .watch {
+    width: 136px;
+    height: 44px;
+    border-radius: 5px;
+    background: none;
+    font-family: "Roboto";
+    font-style: medium;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 0px;
   }
   .mod-img {
     width: 396px;
