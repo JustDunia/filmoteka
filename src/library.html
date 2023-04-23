@@ -35,13 +35,19 @@
     <include src="./partials/spinner.html"></include>
     <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
     <script src="./index.js" type="module"></script>
-    <!-- <script>
-      const listFilms = document.querySelector('.movies-list');
 
+    <script>
+      const messageNoMovies = document.querySelector('.movie__container');
+      const listFilms = document.querySelector('.movies-list');
       const parsed = JSON.parse(localStorage.getItem('WATCH_KEY'));
       console.log(typeof parsed);
 
       function renderFilms(images) {
+        if (parsed.length < 1) {
+          messageNoMovies.classList.toggle('hidden');
+          return;
+        }
+
         const card = parsed
           .map(image => {
             return `
