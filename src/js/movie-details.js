@@ -24,13 +24,13 @@ https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=4e9fa3fc2487236
   return table;
 };
 
-// const fetchGenere = async q => { 
-//   const table = await axios.get(
-//     `
-// https://youtube.googleapis.com/youtube/v3/search?q=${q}&key=AIzaSyB8TTc_5353cPL4Gqfo9xPQBbRH9hfG-YA`,
-//   );
-//   return table;
-// };
+const fetchGenere = async q => { 
+  const table = await axios.get(
+    `
+https://youtube.googleapis.com/youtube/v3/search?q=${q}&key=AIzaSyB8TTc_5353cPL4Gqfo9xPQBbRH9hfG-YA`,
+  );
+  return table;
+};
 
 function gatherDetailsProv(response) {
   const table = response.data.results.PL;
@@ -190,18 +190,18 @@ function handleDetailClick(event) {
       // handle error
       console.log(error);
     });
-  // fetchGenere(event.target.getAttribute('movietitle'))
-  //   .then(function (response) {
-  //     // handle success
-  //     console.log(response);
-  //     console.log(response.data.items[0].id.videoId);
-  //     gatherDetailsForYt(response);
-  //     YoutubeLoad(detailsObjectYouTube.snipet);
-  //   })
-  //   .catch(function (error) {
-  //     // handle error
-  //     console.log(error);
-  //   });  
+  fetchGenere(event.target.getAttribute('movietitle'))
+    .then(function (response) {
+      // handle success
+      console.log(response);
+      console.log(response.data.items[0].id.videoId);
+      gatherDetailsForYt(response);
+      YoutubeLoad(detailsObjectYouTube.snipet);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });  
 }
 
 gallery.onclick = handleDetailClick;
