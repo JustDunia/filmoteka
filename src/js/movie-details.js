@@ -12,7 +12,6 @@ const queueButton = document.querySelector('.que');
 const spinner = document.querySelector('.sk-chase');
 let exportData;
 
-
 closeModal.onclick = modalToggle;
 
 const fetchProvider = async (id = 1771) => {
@@ -24,7 +23,7 @@ https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=4e9fa3fc2487236
   return table;
 };
 
-const fetchGenere = async q => { 
+const fetchGenere = async q => {
   const table = await axios.get(
     `
 https://youtube.googleapis.com/youtube/v3/search?q=${q}&key=AIzaSyB8TTc_5353cPL4Gqfo9xPQBbRH9hfG-YA`,
@@ -117,30 +116,30 @@ function renderDetails(response) {
   }"><h2 class="mod-title">${table.title.toUpperCase()}</h2>
   <div class="row">
 <div class = "columnA">
-  <p>Vote / Votes</p>
-  <p>Popularity</p>
-  <p>Original Title</p>
+  <p class="space">Vote / Votes</p>
+  <p class="space">Popularity</p>
+  <p class="space">Original Title</p>
+  <p class="space">Genre</p>
   </div>
      <div class = "columnB">
-     <p><span class="vote-mod">${table.vote_average.toFixed(1)}</span> / ${table.vote_count}</p>
-     <p>${table.popularity.toFixed(1)}</p>
-     <p>${table.original_title.toUpperCase()}</p>
-      
-     </div></div>
-     <div class="row">
-<div class="columnA"><p >Genre</p></div>
-<div class="columnB"><p >${table.genres
-    .map(element => idToGenereTranslate(element.id))
-    .join(`, `)}  
-     </p>    </div></div>
-     
+     <p class="space"><span class="vote-mod">${table.vote_average.toFixed(
+       1,
+     )}</span> / <span class="votes-mod">${table.vote_count}</p>
+     <p class="space">${table.popularity.toFixed(1)}</p></b>
+     <p class="space">${table.original_title.toUpperCase()}</p>
+     <p class="space">${table.genres.map(element => idToGenereTranslate(element.id)).join(`, `)}  
+     </p> 
+     </div></div>  
   <h3 class="mod-about">ABOUT</h3>
       <p class="mod-about-content">${table.overview}</p>
   `;
-  overview.insertAdjacentHTML('afterbegin', markupList.replaceAll(
-    'https://image.tmdb.org/t/p/w500null',
-    'https://mateuszwoj-bit.github.io/GOIT-team-project-ice/squoosh-how1-desktop.b9f13a59.png',
-  ));
+  overview.insertAdjacentHTML(
+    'afterbegin',
+    markupList.replaceAll(
+      'https://image.tmdb.org/t/p/w500null',
+      'https://mateuszwoj-bit.github.io/GOIT-team-project-ice/squoosh-how1-desktop.b9f13a59.png',
+    ),
+  );
   spinner.classList.add('hidden');
 }
 
@@ -164,14 +163,14 @@ function handleDetailClick(event) {
       console.log(exportData.title);
       const parsedWatch = JSON.parse(localStorage.getItem('WATCH_KEY'));
       const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));
-     if (parsedWatch.find(movie => movie.title === exportData.title)) {
-       watchButton.innerHTML = 'ADDED TO WATCHED';
-       watchButton.classList.add('btn-mod-color');
-     }
-     if (parsedQue.find(movie => movie.title === exportData.title)) {
-       queueButton.innerHTML = 'ADDED TO QUEUE';
-       queueButton.classList.add('btn-mod-color');
-     }
+      if (parsedWatch.find(movie => movie.title === exportData.title)) {
+        watchButton.innerHTML = 'ADDED TO WATCHED';
+        watchButton.classList.add('btn-mod-color');
+      }
+      if (parsedQue.find(movie => movie.title === exportData.title)) {
+        queueButton.innerHTML = 'ADDED TO QUEUE';
+        queueButton.classList.add('btn-mod-color');
+      }
     })
     .then(
       fetchProvider(event.target.getAttribute('movieID'))
@@ -201,7 +200,7 @@ function handleDetailClick(event) {
     .catch(function (error) {
       // handle error
       console.log(error);
-    });  
+    });
 }
 
 gallery.onclick = handleDetailClick;

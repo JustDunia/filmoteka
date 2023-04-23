@@ -16,16 +16,14 @@
 }
 
 .mod--buttons {
-  display: flex;
+  margin-left: 0;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
   gap: 15px;
 }
 
 .mod {
+  border-radius: 5px;
   position: fixed;
   z-index: 3;
   top: 20px;
@@ -35,24 +33,24 @@
 }
 
 .watch {
-  width: 108px;
+  width: 136px;
   height: 44px;
   border-radius: 5px;
   background: none;
   font-family: 'Roboto';
-  font-style: normal;
+  font-style: medium;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   cursor: pointer;
 }
 .que {
-  width: 108px;
+  width: 136px;
   height: 44px;
   border-radius: 5px;
   background: none;
   font-family: 'Roboto';
-  font-style: normal;
+  font-style: medium;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -60,26 +58,21 @@
 }
 
 .btn-mod-color {
-  background: #ff6b01;
+  background: #bb1121;
   border: none;
   color: #ffffff;
 }
 .watch:hover,
 .que:hover {
-  background: #ff6b01;
-  border: 1px solid #ff6b01;
+  background: #bb1121;
+  border: 1px solid #bb1121;
   color: #ffffff;
 }
 
 .btn-mod-color {
-  background: #ff6b01;
+  background: #bb1121;
   border: none;
   color: #ffffff;
-}
-
-.mod-title {
-  margin-top: 2px;
-  margin-bottom: 0px;
 }
 
 .row {
@@ -90,56 +83,71 @@
 .columnA {
   flex: 40%;
   font-family: 'Roboto';
-  font-style: normal;
+  font-style: medium;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   color: #8c8c8c;
+
+  margin-top: 20px;
 }
 .columnB {
   flex: 60%;
   font-family: 'Roboto';
-  font-style: bold;
+  font-style: medium;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+
+  margin-top: 20px;
 }
 .mod-about {
   font-family: 'Roboto';
-  font-style: bold;
+  font-style: medium;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
+
+  margin-top: 20px;
 }
 .mod-about-content {
   font-family: 'Roboto';
-  font-style: normal;
+  font-style: medium;
   font-weight: 500;
   font-size: 12px;
   line-height: 20px;
+
+  margin-top: 8px;
+}
+.space {
+  margin-bottom: 8px;
 }
 
 .vote-mod {
-  padding: 1px 3px;
+  padding: 1px 9px;
   color: #fff;
-  background: #ff6b01;
+  background: #bb1121;
+  border-radius: 5px;
+}
+.votes-mod {
+  padding: 1px 4px;
+  background: #f7f7f7;
   border-radius: 5px;
 }
 
 .mod-content {
   width: 340px;
   background: #ffffff;
-  padding-top: 28px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 10px;
+  padding: 40px 12px;
+ 
   -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
 
 .mod-img {
-  width: 300px;
+  width: 240px;
+  min-height: 357px;
   border-radius: 5px;
   float: left;
   margin-right: 20px;
@@ -155,8 +163,6 @@
 }
 
 .vplayer {
-  margin-top: 30px;
-  margin-bottom: 30px;
   position: relative;
   padding-top: 56.25%;
   overflow: hidden;
@@ -208,7 +214,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .modalClose {  
+  .modalClose {
     right: 15px;
     top: 5px;
   }
@@ -216,14 +222,11 @@
   .mod-content {
     width: 645px;
     background: #ffffff;
-    padding-top: 28px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 10px;
     -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   }
+
   .mod--buttons {
     display: flex;
     flex-direction: row;
@@ -232,6 +235,9 @@
     align-items: center;
     align-content: center;
     gap: 15px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .mod--buttons-alt {
@@ -244,13 +250,14 @@
 
   .mod-img {
     width: 264px;
+    min-height: 373.55px;
     border-radius: 5px;
     float: left;
     margin-right: 20px;
     margin-bottom: 10px;
   }
   .vplayer {
-    margin: 30px;
+    // margin: 30px;
     min-width: 500px;
   }
 
@@ -262,10 +269,6 @@
   .mod-content {
     width: 880px;
     background: #ffffff;
-    padding-top: 28px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 10px;
     -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
@@ -289,8 +292,6 @@
   }
   .vplayer {
     min-width: 500px;
-    margin-top: 10px;
-    margin-top: 30vh;
   }
 
   .mod--buttons {
@@ -299,7 +300,7 @@
   .columnA {
     flex: 35%;
     font-family: 'Roboto';
-    font-style: normal;
+    font-style: medium;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
@@ -308,7 +309,7 @@
   .columnB {
     flex: 65%;
     font-family: 'Roboto';
-    font-style: bold;
+    font-style: medium;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
