@@ -14,12 +14,20 @@ const buttonPressed = (e) => {
 }
 buttonGroup.addEventListener("click", buttonPressed);
 
+
+const messageNoMovies = document.querySelector('.movie__container');
 const listFilms = document.querySelector('.movies-list');
 
-      const parsed = JSON.parse(localStorage.getItem('WATCH_KEY'));
-      console.log(typeof parsed);
+const parsed = JSON.parse(localStorage.getItem('WATCH_KEY'));
+console.log(typeof parsed);
+console.log(parsed);
 
-      function renderFilms(images) {
+function renderFilms(images) {
+        if (parsed === null) {
+          messageNoMovies.classList.toggle('hidden');
+          return;
+          }
+          
         const card = parsed
           .map(image => {
             return `
@@ -44,7 +52,12 @@ const listFilms = document.querySelector('.movies-list');
 const parsed2 = JSON.parse(localStorage.getItem('QUEUE_KEY'));
       console.log(typeof parsed2);
 
-      function renderFilms2(images) {
+function renderFilms2(images) {
+        if (parsed2 === null) {
+          messageNoMovies.classList.toggle('hidden');
+          return;
+  }
+  
         const card = parsed2
           .map(image => {
             return `
