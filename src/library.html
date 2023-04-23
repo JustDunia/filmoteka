@@ -35,9 +35,9 @@
     <include src="./partials/spinner.html"></include>
     <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
     <script src="./index.js" type="module"></script>
+
     <script>
       const messageNoMovies = document.querySelector('.movie__container');
-
       const listFilms = document.querySelector('.movies-list');
       const parsed = JSON.parse(localStorage.getItem('WATCH_KEY'));
       console.log(typeof parsed);
@@ -70,7 +70,8 @@
       }
 
       renderFilms(parsed);
-    </script>
+    </script> -->
+    <script src="./js/library.js" type="module"></script>
     <script src="./js/movie-details.js" type="module"></script>
     <script src="./js/pagination.js" type="module"></script>
   </body>
