@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
-     <link
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
@@ -35,13 +35,19 @@
     <include src="./partials/spinner.html"></include>
     <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
     <script src="./index.js" type="module"></script>
-    <script>
-      const listFilms = document.querySelector('.movies-list');
 
+    <!-- <script>
+      const messageNoMovies = document.querySelector('.movie__container');
+      const listFilms = document.querySelector('.movies-list');
       const parsed = JSON.parse(localStorage.getItem('WATCH_KEY'));
       console.log(typeof parsed);
 
       function renderFilms(images) {
+        if (parsed.length < 1) {
+          messageNoMovies.classList.toggle('hidden');
+          return;
+        }
+
         const card = parsed
           .map(image => {
             return `
@@ -64,10 +70,11 @@
       }
 
       renderFilms(parsed);
-    </script>
+    </script> -->
+    <script src="./js/library.js" type="module"></script>
     <script src="./js/movie-details.js" type="module"></script>
       <script src="./js/pagination.js" type="module"></script>
        <script src="./js/localStorage.js" type="module"></script>
-      
+     
   </body>
 </html>
