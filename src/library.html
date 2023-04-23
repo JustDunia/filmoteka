@@ -33,7 +33,6 @@
     <include src="./partials/pagination.html"></include>
     <include src="./partials/footer.html"></include>
     <include src="./partials/spinner.html"></include>
-    <script src="./js/nomovie-message.js" type="module"></script>
     <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
     <script src="./index.js" type="module"></script>
     <script>
@@ -46,8 +45,8 @@
       function renderFilms(images) {
         if (parsed.length < 1) {
           messageNoMovies.classList.toggle('hidden');
+          return;
         }
-        return;
 
         const card = parsed
           .map(image => {
