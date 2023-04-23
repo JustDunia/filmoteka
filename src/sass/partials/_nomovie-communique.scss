@@ -1,16 +1,14 @@
-.movie{
-  background-image: url('/src/images/nomovies-library/nomovies-komunikat-320-mobile-1x.png');
-  background-size: 100%;
-//   padding-top: 125px;
-  background-repeat: no-repeat;
-  background-position: right 0 bottom 100px;
-//   text-align: center;
-  align-items: flex-end;
-
-  width: 100%;
+.movie {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
+
+.movie__img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .movie {
@@ -19,9 +17,64 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .movie {
-    background-image: url('/src/images/nomovies-library/nomovies-komunikat-1280-desktop-1x.png');
-    background-position: bottom;
-    // background-size: 1282px 534px;
-  }
+.movie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+}
+
+
+// .movie {
+//   background-image: url('/src/images/nomovies-library/nomovies-komunikat-320-mobile-1x.png');
+//   background-size: 100%;
+//   //   padding-top: 125px;
+//   background-repeat: no-repeat;
+//   background-position: right 0 bottom 100px;
+//   text-align: center;
+//   align-items: flex-end;
+//   margin-top: 50px;
+//   min-width: 1280px;
+//   min-height: 700px;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: row;
+
+//   &__container {
+//     width: 100%;
+//     align-items: center;
+//     margin: 0 auto;
+//     max-width: 320px;
+//   }
+// }
+
+// @media screen and (min-width: 768px) and (max-width: 1199px) {
+//   .movie {
+//     // background-image: none;
+//     min-width: 1280px;
+//     min-height: 700px;
+
+//     &__box-contain {
+//       display: flex;
+//       flex-direction: initial;
+//       padding-right: 36px;
+//       margin-top: 100px;
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 1280px) {
+//   .movie {
+//     min-width: 1280px;
+//     min-height: 700px;
+//     background-image: url('/src/images/nomovies-library/nomovies-komunikat-1280-desktop-1x.png');
+//     background-position: bottom;
+//     // background-size: 1282px 534px;
+//     &__container {
+//       max-width: 1280px;
+//     }
+//     &__box-contain {
+//       display: flex;
+//     }
+//   }
+// }
