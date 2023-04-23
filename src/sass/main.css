@@ -90,7 +90,7 @@
   border-radius: 100%;
   position: absolute;
   right: 15px;
-  top: 5px;
+  top: 1px;
 }
 
 .mod--buttons {
@@ -210,7 +210,7 @@
 }
 
 .mod-content {
-  width: 880px;
+  width: 340px;
   background: #ffffff;
   padding-top: 28px;
   padding-left: 20px;
@@ -222,7 +222,7 @@
 }
 
 .mod-img {
-  width: 396px;
+  width: 300px;
   border-radius: 5px;
   float: left;
   margin-right: 20px;
@@ -238,7 +238,7 @@
 }
 
 .vplayer {
-  margin-top: 30vh;
+  margin-top: 30px;
   margin-bottom: 30px;
   position: relative;
   padding-top: 56.25%;
@@ -295,6 +295,129 @@
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .modalClose {
+    right: 15px;
+    top: 5px;
+  }
+  .mod-content {
+    width: 645px;
+    background: #ffffff;
+    padding-top: 28px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    -webkit-box-shadow: 8px 8px 24px 0px rgb(66, 68, 90);
+    -moz-box-shadow: 8px 8px 24px 0px rgb(66, 68, 90);
+    box-shadow: 8px 8px 24px 0px rgb(66, 68, 90);
+  }
+  .mod--buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    gap: 15px;
+  }
+  .mod--buttons-alt {
+    justify-content: center;
+  }
+  .mod-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .mod-img {
+    width: 264px;
+    border-radius: 5px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  .vplayer {
+    margin: 30px;
+    min-width: 500px;
+  }
+  .mod--buttons {
+    height: 50px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .mod-content {
+    width: 880px;
+    background: #ffffff;
+    padding-top: 28px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    -webkit-box-shadow: 8px 8px 24px 0px rgb(66, 68, 90);
+    -moz-box-shadow: 8px 8px 24px 0px rgb(66, 68, 90);
+    box-shadow: 8px 8px 24px 0px rgb(66, 68, 90);
+  }
+  .mod--buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 15px;
+  }
+  .mod-img {
+    width: 396px;
+    border-radius: 5px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  .vplayer {
+    min-width: 500px;
+    margin-top: 10px;
+    margin-top: 30vh;
+  }
+  .mod--buttons {
+    height: 100px;
+  }
+  .columnA {
+    flex: 35%;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8c8c8c;
+  }
+  .columnB {
+    flex: 65%;
+    font-family: "Roboto";
+    font-style: bold;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+.date {
+  background-color: #222;
+  height: 230px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fill {
+  display: flex;
+  flex-wrap: wrap;
+  visibility: hidden;
+  color: #fff;
+  min-height: 10px;
+  min-width: 50px;
+}
+
+button {
+  cursor: crosshair;
 }
 
 body {
