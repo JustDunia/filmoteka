@@ -1,6 +1,8 @@
 .stream {
   border-radius: 5px;
   margin-bottom: 5px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .modalClose {
@@ -29,7 +31,11 @@
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  overflow-y: auto;
+  overflow-y: scroll;
+}
+
+.mod-title {
+  font-size: 20px;
 }
 
 .watch {
@@ -43,6 +49,8 @@
   font-size: 12px;
   line-height: 16px;
   cursor: pointer;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
 .que {
   width: 136px;
@@ -55,6 +63,7 @@
   font-size: 12px;
   line-height: 16px;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .btn-mod-color {
@@ -90,6 +99,7 @@
   color: #8c8c8c;
 
   margin-top: 20px;
+  // margin-left: 20px;
 }
 .columnB {
   flex: 60%;
@@ -98,6 +108,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  // margin-right: 20px;
 
   margin-top: 20px;
 }
@@ -118,6 +129,7 @@
   line-height: 20px;
 
   margin-top: 8px;
+  margin-bottom: 20px;
 }
 .space {
   margin-bottom: 8px;
@@ -139,19 +151,27 @@
   width: 340px;
   background: #ffffff;
   padding: 40px 12px;
- 
+
   -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
 
 .mod-img {
-  width: 240px;
-  min-height: 357px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
   border-radius: 5px;
   float: left;
+  margin-bottom: 20px;
+}
+
+.mod-div-img {
+  // width: 240px;
+  // min-height: 357px;
+  margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 10px;
 }
 
 .mod-ab {
@@ -160,6 +180,8 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
+  margin-left: 20px;
+  margin-bottom: 8px;
 }
 
 .vplayer {
@@ -219,6 +241,55 @@
     top: 5px;
   }
 
+  .mod-about-content {
+    font-family: 'Roboto';
+    font-style: medium;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+
+    margin-top: 8px;
+    margin-bottom: 20px;
+  }
+
+  .stream {
+    border-radius: 5px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+  }
+
+  .watch {
+    width: 136px;
+    height: 44px;
+    border-radius: 5px;
+    background: none;
+    font-family: 'Roboto';
+    font-style: medium;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: -30px;
+  }
+
+  .que {
+    width: 136px;
+    height: 44px;
+    border-radius: 5px;
+    background: none;
+    font-family: 'Roboto';
+    font-style: medium;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
   .mod-content {
     width: 645px;
     background: #ffffff;
@@ -231,18 +302,18 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    // justify-content: flex-end;
     align-items: center;
     align-content: center;
     gap: 15px;
-
+    margin-left: 334px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
 
-  .mod--buttons-alt {
-    justify-content: center;
-  }
+  // .mod--buttons-alt {
+  //   justify-content: center;
+  // }
   .mod-title {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -266,6 +337,10 @@
   }
 }
 @media screen and (min-width: 1024px) {
+
+  .mod-title {
+  font-size: 30px;
+}
   .mod-content {
     width: 880px;
     background: #ffffff;
@@ -274,13 +349,13 @@
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   }
   .mod--buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+  
+    // justify-content: flex-end;
+   
     gap: 15px;
+    margin-left: 340px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .mod-img {
