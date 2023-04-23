@@ -109,7 +109,8 @@
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  overflow-y: visible;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 
 .mod-title {

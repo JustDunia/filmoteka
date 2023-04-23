@@ -31,7 +31,8 @@
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  overflow-y: visible;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 
 .mod-title {
@@ -337,10 +338,9 @@
   }
 }
 @media screen and (min-width: 1024px) {
-
   .mod-title {
-  font-size: 30px;
-}
+    font-size: 30px;
+  }
   .mod-content {
     width: 880px;
     background: #ffffff;
@@ -349,12 +349,11 @@
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   }
   .mod--buttons {
-    
     margin: 0px;
     gap: 15px;
   }
 
-    .watch {
+  .watch {
     width: 136px;
     height: 44px;
     border-radius: 5px;
