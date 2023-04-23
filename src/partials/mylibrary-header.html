@@ -1,16 +1,16 @@
 <header class="header-library">
-  <div class="container header-library__container">
-    <nav class="header-library-nav">
-      <ul class="header-library-nav__list">
-        <a href="./index.html" class="logo">
-          <svg width="24" height="24">
-            <use href="./images/icons/icons.svg#icon-logo"></use>
-          </svg>
-          <span class="logo__name">Filmoteka</span>
-        </a>
+  <div class="header-main__container">
+    <div class="header-main__menu">
+      <a href="./index.html" class="logo">
+        <svg width="24" height="24">
+          <use href="./images/icons/icons.svg#icon-logo"></use>
+        </svg>
+        <span class="logo__name">Filmoteka</span>
+      </a>
+      <nav>
         <ul class="header-nav__list">
           <li>
-            <a href="./index.html" class="header-nav__link">HOME</a>
+            <a href="./index.html" class="header-nav__link reference">HOME</a>
           </li>
           <li>
             <a href="./library.html" class="header-nav__link header-nav__link--active"
@@ -18,16 +18,20 @@
             >
           </li>
         </ul>
-      </ul>
-    </nav>
-    <ul class="header-library-buttons" id="button-group">
+      </nav>
+    </div>
+    <ul class="header-library-buttons">
       <li class="header-library-buttons__item">
-        <button id="watched-btn" type="button" class="header-library-buttons__button">
+        <button
+          type="button"
+          class="header-library-buttons__button header-library-buttons__button--active"
+        >
           watched
         </button>
       </li>
+
       <li class="header-library-buttons__item">
-        <button id="queue-btn" type="button" class="header-library-buttons__button">queue</button>
+        <button type="button" class="header-library-buttons__button">queue</button>
       </li>
     </ul>
   </div>
