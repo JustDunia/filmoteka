@@ -3,9 +3,11 @@ import { idToGenereTranslate } from './helpers';
 
 const watchButton = document.querySelector('.watch');
 const queueButton = document.querySelector('.que');
+ console.log(watchButton);
 const url = 'https://image.tmdb.org/t/p/w500';
 
 function addToWatched() {
+  console.log("adding to wached")
   const movieDetailsToSave = {
     title: exportData.title,
     id: exportData.id,
@@ -17,6 +19,7 @@ function addToWatched() {
     org_title: exportData.original_title,
     about: exportData.overview,
   };
+  
 
   watchButton.innerHTML = 'ADDED TO WATCHED';
   watchButton.classList.add('btn-mod-color');
@@ -44,6 +47,8 @@ function addToWatched() {
 }
 
 function addToQueued() {
+console.log(watchButton);
+ console.log('adding to wached');
   const movieDetailsToSave = {
     title: exportData.title,
     id: exportData.id,
