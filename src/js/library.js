@@ -3,10 +3,10 @@ let prevButton = null;
 
 const buttonPressed = (e) => {
   if(e.target.nodeName === 'BUTTON') {
-    e.target.classList.add('header-library-buttons__button--active'); // Add .active CSS Class
+    e.target.classList.add('header-library-buttons__button--active');
 
     if(prevButton !== null) {
-      prevButton.classList.remove('header-library-buttons__button--active');  // Remove .active CSS Class
+      prevButton.classList.remove('header-library-buttons__button--active');
     }
 
     prevButton = e.target;
