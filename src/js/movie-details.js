@@ -111,9 +111,9 @@ function renderDetails(response) {
   exportData = response.data;
   console.log(table);
 
-  const markupList = `<image class="mod-img" src="https://image.tmdb.org/t/p/w500${
+  const markupList = `<div class="mod-div-img"><image class="mod-img" src="https://image.tmdb.org/t/p/w500${
     table.poster_path
-  }"><h2 class="mod-title">${table.title.toUpperCase()}</h2>
+  }"><div><h2 class="mod-title">${table.title.toUpperCase()}</h2>
   <div class="row">
 <div class = "columnA">
   <p class="space">Vote / Votes</p>
