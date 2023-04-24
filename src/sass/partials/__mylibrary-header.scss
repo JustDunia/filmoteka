@@ -1,0 +1,82 @@
+.header-library {
+  margin: 0 auto;
+  margin-left: 0;
+  margin-right: 0;
+  background-position: center;
+  background-size: cover;
+
+  @media (min-width: 769px) {
+    padding: 45px 0 45px 0;
+    height: 216px;
+    opacity: 90%;
+    cursor: auto;
+
+    background-image: url('../images/header-library/library-background-1280-1x.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      background-image: url('../images/header-library/library-background-1280-2x.jpg');
+    }
+  }
+  @media screen and (min-width: 321px) and (max-width: 768px) {
+    padding: 45px 0 45px 0;
+    height: 216px;
+    opacity: 90%;
+    background-image: url('../images/header-library/library-background-768-1x.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      background-image: url('../images/header-library/library-background-768-2x.jpg');
+    }
+  }
+  @media screen and (max-width: 320px) {
+    background-image: url('../images/header-library/library-background-320-1x.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      background-image: url('../images/header-library/library-background-320-2x.jpg');
+    }
+  }
+}
+
+.header-library-buttons {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  list-style: none;
+}
+
+.header-library-buttons__item:first-child {
+  margin-right: 16px;
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 16px;
+  }
+}
+
+.header-library-buttons__button {
+  width: 129.5px;
+  height: 44px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  background-color: inherit;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    width: 152px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 148px;
+  }
+}
+
+.header-library-buttons__button:hover,
+.header-library-buttons__button--active {
+  background-color: #ff6b08;
+  border: 1px solid #ff6b08;
+}
+.active {
+  background-color: #ff6b08;
+  border: 1px solid #ff6b08;
+}

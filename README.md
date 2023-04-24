@@ -1,4 +1,4 @@
-# parcel-project-template
+# parcel-project-template //Witaj Mikołaju nasz JSowy Guru
 
 ## Zalezności
 
