@@ -7,7 +7,7 @@ const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
 
 let currentPage = 1;
 let totalItems = 0;
-console.log("dupa")
+console.log('dupa');
 const fetchTrendingMovies = async page => {
   const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/week`, {
     params: {
@@ -50,8 +50,6 @@ function renderFilms(images) {
     'https://mateuszwoj-bit.github.io/GOIT-team-project-ice/squoosh-how1-desktop.b9f13a59.png',
   );
 }
-
-
 
 const pagination = new Pagination(document.getElementById('tui-pagination-container'), {
   totalItems: totalItems,
