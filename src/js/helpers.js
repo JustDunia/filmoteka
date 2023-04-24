@@ -1,30 +1,10 @@
 const backdrop = document.querySelector('.backdrop');
 const modal = document.querySelector('.mod');
 
-let isModalOpen;
-
 function modalToggle() {
   modal.classList.toggle('hidden');
   backdrop.classList.toggle('hidden');
-  isModalOpen = modal.classList.contains('hidden') ? false : true;
-  handleModalClosing();
 }
-
-function checkForEscape(e) {
-  if (e.key === 'Escape') {
-    modalToggle();
-  }
-}
-
-function handleModalClosing() {
-  if (isModalOpen) {
-    window.addEventListener('keydown', checkForEscape);
-  } else {
-    window.removeEventListener('keydown', checkForEscape);
-  }
-}
-
-backdrop.addEventListener('click', modalToggle);
 
 function idToGenereTranslate(genID) {
   for (let id of idForNameGeneres) {
