@@ -67,11 +67,6 @@
   margin-bottom: 20px;
 }
 
-.btn-mod-color {
-  background: #bb1121;
-  border: none;
-  color: #ffffff;
-}
 .watch:hover,
 .que:hover {
   background: #bb1121;
@@ -422,4 +417,10 @@
 
 button {
   cursor: crosshair;
+}
+
+.btn-mod-color {
+  background: #bb1121;
+  border: none;
+  color: #ffffff;
 }
