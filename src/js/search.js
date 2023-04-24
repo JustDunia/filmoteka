@@ -19,7 +19,6 @@ const fetchSearchMovies = async (query, page) => {
     `
     https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`,
   );
-  console.log(table);
   return table;
 };
 
@@ -71,7 +70,6 @@ function searchFilms(event) {
   const {
     elements: { searchQuery },
   } = event.currentTarget;
-  console.log(searchQuery.value);
   searchMore = searchQuery.value;
   page = 1;
 
@@ -79,11 +77,9 @@ function searchFilms(event) {
 
   {
     fetchSearchMovies(searchQuery.value, 1).then(response => {
-      console.log(response);
       totalItems = response.data.total_results;
       pagination.reset(totalItems);
       renderFilms(response);
-      console.log('currentPage:', currentPage);
     });
   }
 
@@ -114,12 +110,9 @@ function searchFilms(event) {
   });
 
   pagination.on('afterMove', async function (eventData) {
-    console.log(`Page moved to ${eventData.page}`);
     currentPage = eventData.page;
-    console.log('currentPage:', currentPage); // check that currentPage is being updated correctly
     const response = await fetchSearchMovies(searchQuery.value, currentPage);
     totalItems = response.total_results;
-    console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
     listFilms.innerHTML = [] + [];
     renderFilms(response);
   });
