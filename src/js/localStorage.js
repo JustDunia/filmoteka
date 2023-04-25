@@ -3,11 +3,9 @@ import { idToGenereTranslate } from './helpers';
 
 const watchButton = document.querySelector('.watch');
 const queueButton = document.querySelector('.que');
- console.log(watchButton);
 const url = 'https://image.tmdb.org/t/p/w500';
 
 function addToWatched() {
-  console.log("adding to wached")
   const movieDetailsToSave = {
     title: exportData.title,
     id: exportData.id,
@@ -47,8 +45,6 @@ function addToWatched() {
 }
 
 function addToQueued() {
-console.log(watchButton);
- console.log('adding to wached');
   const movieDetailsToSave = {
     title: exportData.title,
     id: exportData.id,
@@ -90,14 +86,3 @@ console.log(watchButton);
 
 watchButton.addEventListener('click', addToWatched);
 queueButton.addEventListener('click', addToQueued);
-
-//odczytywanie danych z localStorage
-const getDataW = localStorage.getItem('WATCH_KEY');
-const getDataQ = localStorage.getItem('QUEUE_KEY');
-const parsedDataW = JSON.parse(getDataW);
-const parsedDataQ = JSON.parse(getDataQ);
-
-// const testW = parsedDataW.map(movie => movie.title)
-// console.log(testW);
-// const testQ = parsedDataQ.map(movie => movie.title);
-// console.log(testQ);

@@ -19,7 +19,6 @@ const fetchProvider = async (id = 1771) => {
     `
 https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=4e9fa3fc2487236fdff94602c5bb9552`,
   );
-  console.log(table);
   return table;
 };
 
@@ -33,10 +32,7 @@ https://youtube.googleapis.com/youtube/v3/search?q=${q}&key=AIzaSyB8TTc_5353cPL4
 
 function gatherDetailsProv(response) {
   const table = response.data.results.PL;
-  console.log('test');
   if (table !== undefined && table.flatrate !== undefined) {
-    // console.log(table.flatrate[0].provider_name.includes === "Netflix")
-    console.log(table.flatrate[0].provider_name === 'Netflix');
     const NMark = `<a href="https://www.netflix.com/search?q=${exportData.title}" target="_blank" rel="noreferrer noopener"><image class="stream" src="https://www.themoviedb.org/t/p/original${table.flatrate[0].logo_path}" width="50" height="50"></a>   
    `;
 
@@ -63,19 +59,17 @@ function gatherDetailsForYt(response) {
   detailsObjectYouTube = {
     snipet: table.items[0].id.videoId,
   };
-  console.log(detailsObjectYouTube);
 }
 
-var vplayer = document.querySelectorAll('.vplayer');
+const vplayer = document.querySelectorAll('.vplayer');
 
 function YoutubeLoad(q) {
-  var vplayer = document.querySelectorAll('.vplayer');
+  const vplayer = document.querySelectorAll('.vplayer');
 
-  for (var i = 0; i < vplayer.length; i++) {
-    // console.log(vplayer[i].dataset.v);
-    var source = 'https://img.youtube.com/vi/' + q + '/sddefault.jpg';
+  for (let i = 0; i < vplayer.length; i++) {
+    const source = `https://img.youtube.com/vi/${q}/sddefault.jpg`;
 
-    var image = new Image();
+    const image = new Image();
     image.src = source;
     image.addEventListener(
       'load',
@@ -85,10 +79,10 @@ function YoutubeLoad(q) {
     );
 
     function LoadYT() {
-      var iframe = document.createElement('iframe');
+      const iframe = document.createElement('iframe');
       iframe.setAttribute('allowfullscreen', '');
       iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('src', 'https://www.youtube.com/embed/' + q + '?rel=0&showinfo=0');
+      iframe.setAttribute('src', `https://www.youtube.com/embed/${q}?rel=0&showinfo=0`);
       vplayer[i].innerHTML = '';
       vplayer[i].appendChild(iframe);
     }
@@ -109,7 +103,6 @@ https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`);
 function renderDetails(response) {
   const table = response.data;
   exportData = response.data;
-  console.log(table);
 
   const markupList = `<div class="mod-div-img"><image class="mod-img" src="https://image.tmdb.org/t/p/w500${
     table.poster_path
@@ -145,8 +138,6 @@ function renderDetails(response) {
 
 //Pobiera informacje z atrybutów plakatu filmu (IMG)
 function handleDetailClick(event) {
-  console.log(event.target.getAttribute('movieID'));
-  console.log(event.target.getAttribute('movietitle'));
   if (event.target.nodeName !== 'IMG') {
     return;
   }
@@ -160,7 +151,6 @@ function handleDetailClick(event) {
       watchButton.classList.remove('btn-mod-color');
       queueButton.innerHTML = 'ADD TO QUEUE';
       queueButton.classList.remove('btn-mod-color');
-      console.log(exportData.title);
       const parsedWatch = JSON.parse(localStorage.getItem('WATCH_KEY'));
       const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));
       if (parsedWatch.find(movie => movie.title === exportData.title)) {
@@ -176,8 +166,6 @@ function handleDetailClick(event) {
       fetchProvider(event.target.getAttribute('movieID'))
         .then(function (response) {
           // handle success
-          console.log('prov');
-          console.log(response);
           gatherDetailsProv(response);
         })
         .catch(function (error) {
@@ -192,8 +180,6 @@ function handleDetailClick(event) {
   fetchGenere(event.target.getAttribute('movietitle'))
     .then(function (response) {
       // handle success
-      console.log(response);
-      console.log(response.data.items[0].id.videoId);
       gatherDetailsForYt(response);
       YoutubeLoad(detailsObjectYouTube.snipet);
     })
