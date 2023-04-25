@@ -7,7 +7,6 @@ const API_KEY = '4e9fa3fc2487236fdff94602c5bb9552';
 
 let currentPage = 1;
 let totalItems = 0;
-console.log('dupa');
 const fetchTrendingMovies = async page => {
   const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/week`, {
     params: {
@@ -75,24 +74,12 @@ const pagination = new Pagination(document.getElementById('tui-pagination-contai
       '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
-  // onPageMove: async function (event, page) {
-  //   currentPage = page;
-  //   console.log('currentPage:', currentPage); // check that currentPage is being updated correctly
-  //   const response = await fetchTrendingMovies(currentPage);
-  //   totalItems = response.total_results;
-  //   console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
-  //   renderFilms(response.results);
-  //   pagination.reset(totalItems);
-  // },
 });
 
 pagination.on('afterMove', async function (eventData) {
-  console.log(`Page moved to ${eventData.page}`);
   currentPage = eventData.page;
-  console.log('currentPage:', currentPage); // check that currentPage is being updated correctly
   const response = await fetchTrendingMovies(currentPage);
   totalItems = response.total_results;
-  console.log('totalItems:', totalItems); // check that totalItems is being updated correctly
   renderFilms(response.results);
 });
 
@@ -100,7 +87,5 @@ pagination.on('afterMove', async function (eventData) {
 fetchTrendingMovies(currentPage).then(response => {
   totalItems = response.total_results;
   pagination.reset(totalItems);
-  console.log(response);
   renderFilms(response.results);
-  console.log('currentPage:', currentPage);
 });

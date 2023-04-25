@@ -1,21 +1,12 @@
 const messageNoMovies = document.querySelector('.movie__container');
 const listFilms = document.querySelector('.movies-list');
 
-console.log(typeof parsed);
-
-// if (parsed === null || parsed === 0 || parsed.length <1 ) {
-//   messageNoMovies.classList.toggle('hidden2');
-//   console.log('wyświetlanie zdjęcia watch');
-// return;
-// }
-
 function renderFilms(parsed11) {
   listFilms.innerHTML = '';
   const parsed = JSON.parse(localStorage.getItem('WATCH_KEY'));
   if (parsed === null || parsed === 0 || parsed.length < 1) {
     messageNoMovies.classList.remove('hidden');
-    console.log('wyświetlanie zdjęcia watch');
-    return;
+      return;
   }
   messageNoMovies.classList.add('hidden');
   const card = parsed
@@ -23,7 +14,7 @@ function renderFilms(parsed11) {
       return `
     <li class="movie-item">
       <img class="boxID" alt="${image.title} movie poster" movieID="${image.id}" movieTitle="${
-        image.title + ' ' + image.releaseDate
+        image.title} ${image.releaseDate
       }" src="${image.poster}">
       <div class="info">
         <p class="info__title">
@@ -39,14 +30,12 @@ function renderFilms(parsed11) {
   listFilms.innerHTML = card;
 }
 
-console.log(typeof parsed2);
 
 function renderFilms2(parsed12) {
   listFilms.innerHTML = '';
   const parsed2 = JSON.parse(localStorage.getItem('QUEUE_KEY'));
   if (parsed2 === null || parsed2 === 0 || parsed2.length < 1) {
     messageNoMovies.classList.remove('hidden');
-    console.log('wyświetlanie zdjęcia watch');
     return;
   }
   messageNoMovies.classList.add('hidden');
@@ -55,7 +44,7 @@ function renderFilms2(parsed12) {
       return `
       <li class="movie-item">
         <img class="boxID" alt="${image.title} movie poster" movieID="${image.id}" movieTitle="${
-        image.title + ' ' + image.releaseDate
+        image.title} ${image.releaseDate
       }" src="${image.poster}">
         <div class="info">
           <p class="info__title">
@@ -70,12 +59,6 @@ function renderFilms2(parsed12) {
     .join('');
   listFilms.innerHTML = card;
 }
-
-// const watchedBtn = document.querySelector("#watched-btn");
-// watchedBtn.addEventListener("click", renderFilms);
-
-// const queueBtn = document.querySelector("#queue-btn");
-// queueBtn.addEventListener("click", renderFilms2);
 
 const watchedBtn = document.querySelector('#watched-btn');
 const queueBtn = document.querySelector('#queue-btn');
@@ -100,7 +83,6 @@ const libStart = () => {
   const parsed = JSON.parse(localStorage.getItem('WATCH_KEY'));
   if (parsed === null || parsed === 0 || parsed.length < 1) {
     messageNoMovies.classList.remove('hidden');
-    console.log('wyświetlanie zdjęcia watch');
   }
   watchedBtn.setAttribute('disabled', '');
   queueBtn.removeAttribute('disabled');
