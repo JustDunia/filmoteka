@@ -11,6 +11,7 @@ const queueButton = document.querySelector('.que');
 
 const spinner = document.querySelector('.sk-chase');
 let exportData;
+let detailsObjectYouTube;
 
 closeModal.onclick = modalToggle;
 
@@ -153,13 +154,24 @@ function handleDetailClick(event) {
       queueButton.classList.remove('btn-mod-color');
       const parsedWatch = JSON.parse(localStorage.getItem('WATCH_KEY'));
       const parsedQue = JSON.parse(localStorage.getItem('QUEUE_KEY'));
-      if (parsedWatch.find(movie => movie.title === exportData.title)) {
-        watchButton.innerHTML = 'ADDED TO WATCHED';
-        watchButton.classList.add('btn-mod-color');
-      }
-      if (parsedQue.find(movie => movie.title === exportData.title)) {
-        queueButton.innerHTML = 'ADDED TO QUEUE';
-        queueButton.classList.add('btn-mod-color');
+      if (
+        (Array.isArray(parsedWatch) && parsedWatch.length) ||
+        (Array.isArray(parsedQue) && parsedQue.length)
+      ) {
+        if (parsedWatch && parsedWatch.length && exportData.title) {
+          const watchedMovie = parsedWatch.find(movie => movie.title === exportData.title);
+          if (watchedMovie) {
+            watchButton.innerHTML = 'ADDED TO WATCHED';
+            watchButton.classList.add('btn-mod-color');
+          }
+        }
+        if (parsedQue && parsedQue.length && exportData.title) {
+          const queueMovie = parsedQue.find(movie => movie.title === exportData.title);
+          if (queueMovie) {
+            queueButton.innerHTML = 'ADDED TO QUEUE';
+            queueButton.classList.add('btn-mod-color');
+          }
+        }
       }
     })
     .then(
