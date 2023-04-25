@@ -96,7 +96,10 @@ zdarzenie, które jest kiedy paginacja jest włączona.
 # addEventListener(‘submit’) 
 dajemy nasłuchiwanie na form.
 
-
+# Info dot. Streamu
+Zapytanie do API TMDB, generuje informacje o dostępności streamingu w Polsce
+# Info dot.  Trailer'a filmu
+Zapytanie do API Youtube generuje informację o id filmu w serwisie (youtube). Po opracowaniu przekazanej informacji umieszczamy trailer w ramach modala.
 
 
 
